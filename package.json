@@ -1,0 +1,8 @@
+{
+  "name": "http-connections",
+  "version": "0.0.0",
+  "description": "keeps track of connections to an http server and provides a way to close connections",
+  "main": "index.js",
+  "author": "max ogden",
+  "license": "BSD-2-Clause"
+}
