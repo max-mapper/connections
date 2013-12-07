@@ -1,8 +1,16 @@
 {
-  "name": "http-connections",
-  "version": "0.0.0",
-  "description": "keeps track of connections to an http server and provides a way to close connections",
+  "name": "connections",
+  "version": "0.0.1",
+  "description": "Keeps track of connections to an http server and provides a way to close connections",
   "main": "index.js",
   "author": "max ogden",
-  "license": "BSD-2-Clause"
+  "license": "BSD-2-Clause",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxogden/connections.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maxogden/connections/issues"
+  },
+  "homepage": "https://github.com/maxogden/connections"
 }
