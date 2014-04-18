@@ -1,10 +1,11 @@
-module.exports = function(server) {
+module.exports = function(server, onClose) {
   var sockets = []
 
   server.on('connection', function (socket) {
     sockets.push(socket)
     socket.on('close', function () {
       sockets.splice(sockets.indexOf(socket), 1)
+      if (onClose) onClose(socket)
     })
   })
   
