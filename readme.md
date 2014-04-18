@@ -9,12 +9,18 @@ By default, `require('http').createServer` provides no mechanism for tracking cl
 ## usage
 
 ```
-var connections = require('connections')(httpServerInstance, onClose)
+var connections = require('connections')(httpServerInstance)
 ```
 
 `connections` has `.sockets` and `.destroy`
 
-`onClose` is an optional function that will get called as `onClose(socket)` every time a socket is closed
+### connections.on('idle', function() {})
+
+called whenever all active connections have closed
+
+### connections.on('close', function(socket) {})
+
+called whenever a socket closes
 
 ### connections.sockets
 

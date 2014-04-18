@@ -1,3 +1,5 @@
+var events = require('events')
+
 module.exports = function(server, onClose) {
   var sockets = []
 
@@ -5,14 +7,14 @@ module.exports = function(server, onClose) {
     sockets.push(socket)
     socket.on('close', function () {
       sockets.splice(sockets.indexOf(socket), 1)
-      if (onClose) onClose(socket)
+      obj.emit('close', socket)
+      if (sockets.length === 0) obj.emit('idle')
     })
   })
   
-  var obj = {
-    sockets: sockets,
-    destroy: destroy
-  }
+  var obj = new events.EventEmitter()
+  obj.sockets = sockets
+  obj.destroy = destroy
   
   function destroy() {
     for (var i = 0; i < sockets.length; i++) {
