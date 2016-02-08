@@ -35,3 +35,8 @@ an array of open sockets (http clients)
 ### connections.destroy()
 
 destroys/closes all active connections (calls .destroy() on each socket)
+
+### connections.add(socket)
+
+manually add a socket to the connection list
+
