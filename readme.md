@@ -1,6 +1,6 @@
 # connections
 
-Keeps track of connections to an http server and provides a way to close connections
+Keeps track of connections to an http or tcp server (or any other server object with the xame api) and provides a way to close connections
 
 By default, `require('http').createServer` provides no mechanism for tracking client connections and/or closing client connections
 
@@ -9,8 +9,10 @@ By default, `require('http').createServer` provides no mechanism for tracking cl
 ## usage
 
 ```
-var connections = require('connections')(httpServerInstance)
+var connections = require('connections')(serverInstance)
 ```
+
+You can also pass an array of server instances
 
 `connections` has `.sockets` and `.destroy`
 
@@ -21,6 +23,10 @@ called whenever all active connections have closed
 ### connections.on('close', function(socket) {})
 
 called whenever a socket closes
+
+### connections.on('connection', function (socket) {})
+
+forwarded event from the server or servers
 
 ### connections.sockets
 
