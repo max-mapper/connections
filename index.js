@@ -6,7 +6,6 @@ module.exports = function(servers) {
   if (!Array.isArray(servers)) servers = [servers]
   servers.forEach(function (server) {
     server.on('connection', function (socket) {
-      obj.emit('connection', socket)
       obj.add(socket)
     })
   })
@@ -21,6 +20,7 @@ module.exports = function(servers) {
       obj.emit('close', socket)
       if (sockets.length === 0) obj.emit('idle')
     })
+    obj.emit('connection', socket)
   }
 
   function destroy() {
