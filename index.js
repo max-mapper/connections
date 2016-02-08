@@ -6,6 +6,7 @@ module.exports = function(servers) {
   if (!Array.isArray(servers)) servers = [servers]
   servers.forEach(function (server) {
     server.on('connection', function (socket) {
+      obj.emit('connection', socket)
       sockets.push(socket)
       socket.on('close', function () {
         sockets.splice(sockets.indexOf(socket), 1)
