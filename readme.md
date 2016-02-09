@@ -1,6 +1,6 @@
 # connections
 
-Keeps track of connections to an http or tcp server (or any other server object with the xame api) and provides a way to close connections
+Keeps track of connections to an http or tcp server (or any other server object with the same api) and provides a way to close connections
 
 By default, `require('http').createServer` provides no mechanism for tracking client connections and/or closing client connections
 
