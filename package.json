@@ -1,6 +1,6 @@
 {
   "name": "connections",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Keeps track of connections to an http server and provides a way to close connections",
   "main": "index.js",
   "author": "max ogden",
