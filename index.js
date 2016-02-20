@@ -6,19 +6,21 @@ module.exports = function (servers) {
   if (!Array.isArray(servers)) servers = [servers]
 
   for (var i = 0; i < servers.length; i++) {
-    servers[i].on('connection', obj.add)
+    servers[i].on('connection', add)
   }
 
   var obj = new events.EventEmitter()
   obj.sockets = sockets
   obj.destroy = destroy
-  obj.add = function (socket) {
+  obj.add = add
+
+  return obj
+
+  function add (socket) {
     sockets.push(socket)
     socket.on('close', onclose)
     obj.emit('connection', socket)
   }
-
-  return obj
 
   function onclose () {
     sockets.splice(sockets.indexOf(this), 1)
